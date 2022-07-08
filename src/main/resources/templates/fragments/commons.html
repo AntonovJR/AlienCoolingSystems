@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://bg.allfont.net/allfont.css?fonts=usuzi" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="icon" th:href="@{/img/thumb.png}">
+    <title>Alien Cooling</title>
+</head>
+
+<body>
+
+
+<nav id="navbar" class="navbar" th:fragment="navbar">
+    <div class="logo">
+        <a href="/"><img th:src="@{/img/logo.png}" alt="logo"></a>
+    </div>
+    <a href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+        <ul>
+            <li><a href="/shop">SHOP</a></li>
+            <li><a href="#products">PRODUCTS</a></li>
+            <li><a href="#about">OUR MISSION</a></li>
+            <li><a href="#contacts">CONTACTS</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div id="home" class="home" th:fragment="slideshow">
+    <div class="slideshow-container">
+        <!-- Full-width images with number and caption text -->
+        <div class="mySlides">
+            <img th:src="@{img/1.png}" style="width: 100%" alt="img not found"/>
+        </div>
+        <div class="mySlides">
+            <img th:src="@{img/2.png}" style="width: 100%" alt="img not found"/>
+        </div>
+        <div class="mySlides">
+            <img th:src="@{img/3.png}" style="width: 100%" alt="img not found"/>
+        </div>
+        <div class="dots" style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+</div>
+
+<footer th:fragment="footer">
+    <div class="socialMedia">
+        <a href="https://www.facebook.com/AlienCoolingSystems/" target="_blank" rel="noopener noreferrer">
+            <img th:src="@{img/facebook.png}" alt="facebook-logo"/>
+        </a>
+
+        <a href="https://www.instagram.com/alien_cooling/" target="_blank" rel="noopener noreferrer">
+            <img  th:src="@{img/instagram.png}" alt="instagram-logo"/>
+        </a>
+    </div>
+    <a>Copyright © Alien Performance 2022</a>
+</footer>
+
+
+
+</body>
+</html>

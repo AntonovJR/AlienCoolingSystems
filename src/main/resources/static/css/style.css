@@ -1,0 +1,277 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Usuzi', arial;
+    background-color: #262626;
+    padding: 0;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #262626;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: #555;
+    border-radius: 10px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #32ec10;
+}
+
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+}
+
+.logo {
+    padding-left: 12.5%;
+    object-fit: contain;
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.navbar-links{
+    padding-right: 12.5%;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    list-style: none;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    display: block;
+    font-size: 120%;
+}
+
+.navbar ul li :hover{
+    color: #32ec10;
+
+}
+
+.toggle-button {
+    position: absolute;
+    top: 3rem;
+    right: 3rem;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+}
+
+.toggle-button .bar {
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 10px;
+}
+
+
+@media (max-width: 600px) {
+    .logo{
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+    }
+    .navbar {
+        width: 100%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .toggle-button {
+        display: flex;
+    }
+
+
+    .navbar-links {
+        display: none;
+        width: 100%;
+    }
+
+    .navbar-links ul {
+        width: 100%;
+        background-color: #262626;
+        flex-direction: column;
+    }
+
+    .navbar-links ul li {
+        text-align: center;
+    }
+
+    .navbar-links ul li a {
+        padding: .5rem 1rem;
+    }
+
+    .navbar-links.active {
+        display: flex;
+        padding: 0;
+    }
+}
+
+/* Hide the images by default */
+.mySlides {
+    display: none;
+    height: auto;
+}
+
+
+/* The dots/bullets/indicators */
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+    background-color: #717171;
+}
+
+main{
+    align-items: center;
+}
+
+main div.about {
+    padding-top: 10px;
+    height: auto;
+    color: white;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+
+.products {
+    padding-top: 10px;
+    height: auto;
+    vertical-align: top;
+    text-align: center;
+    color: white;
+
+}
+
+.products a{
+    text-align: center;
+    display: inline-block;
+    justify-content: space-between;
+    text-decoration: none;
+    color: white;
+    list-style: none;
+}
+
+.tile{
+    width: 250px;
+    height: 250px;
+    align-items: center;
+}
+.tile:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    color: #32ec10;
+}
+
+main div.contacts {
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: top;
+    padding-top: 10px;
+    height: auto;
+    color: white;
+    text-align: center;
+
+}
+
+main div.details div {
+    text-align: center;
+    display: inline-block;
+    justify-content: space-between;
+    text-decoration: none;
+    color: white;
+    list-style: none;
+    padding: 0 8%;
+}
+
+footer {
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    color: white;
+    height: auto;
+    text-align: center;
+    padding-bottom:10px;
+    font-size: 70%;
+
+}
+.socialMedia{
+    justify-content: space-between;
+    align-items: center;
+    vertical-align: top;
+}
+
+.socialMedia a {
+    padding: 5px;
+    display: inline-block;
+}
+
+
+#myBtn {
+    align-items: center;
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 55px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: #555;
+    color: white;
+    cursor: pointer;
+    border-radius: 50px;
+    height: 50px;
+    width: 50px;
+}
+
+#myBtn:hover {
+    background-color: #262626;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border: solid #32ec10;
+    color: #32ec10;
+}
+
+.shop {
+
+    text-align: center;
+    font-size: xx-large;
+    color: #32ec10;
+    height: 500px;
+    padding: 150px;
+}

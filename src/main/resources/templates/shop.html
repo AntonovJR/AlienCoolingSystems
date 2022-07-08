@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragments/commons::head"></head>
+
+<body>
+<button onclick="topFunction()" id="myBtn" title="Go to top">&#9650;</button>
+<nav id="navbar" class="navbar" th:fragment="navbar">
+    <div class="logo">
+        <a href="/"><img th:src="@{/img/logo.png}" alt="logo"></a>
+    </div>
+    <a href="#" class="toggle-button">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </a>
+    <div class="navbar-links">
+        <ul>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/users/login">LOGIN</a></li>
+            <li><a href="/users/register">REGISTER</a></li>
+            <li><a href="/shop">LOGOUT</a></li>
+        </ul>
+    </div>
+</nav>
+
+<main>
+    <div id="home" class="home" th:replace="fragments/commons::slideshow"></div>
+
+
+    <div class="shop">
+        Coming Soon!
+        Coming Soon!
+
+    </div>
+</main>
+    <footer th:replace="fragments/commons::footer"> </footer>
+<script>
+    const toggleButton = document.getElementsByClassName('toggle-button')[0]
+    const navbarLinks = document.getElementsByClassName('navbar-links')[0]
+    toggleButton.addEventListener('click', () => {
+        navbarLinks.classList.toggle('active')
+    })
+    var lastScrollTop; // This Variable will store the top position
+
+    navbar = document.getElementById('navbar'); // Get The NavBar
+
+    window.addEventListener('scroll',function(){
+        //on every scroll this function will be called
+
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        //This line will get the location on scroll
+
+        if(scrollTop > lastScrollTop){ //if it will be greater than the previous
+            navbar.style.top='-100px';
+            navbar.style.background='0';
+            //set the value to the negative of height of navbar
+        }else{
+            navbar.style.top='0';
+            navbar.style.background='#262626';
+        }
+
+        lastScrollTop = scrollTop; //New Position Stored
+    });
+
+</script>
+
+<script>
+    //Get the button
+    var mybutton = document.getElementById("myBtn");
+
+    // When the user scrolls down 20px from the top of the document, show the button
+    window.onscroll = function () {
+        scrollFunction()
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            mybutton.style.display = "block";
+        } else {
+            mybutton.style.display = "none";
+        }
+    }
+
+    // When the user clicks on the button, scroll to the top of the document
+    function topFunction() {
+        $('body,html').animate({scrollTop: 0}, 1000);
+    }
+</script>
+
+<script>
+    var slideIndex = 1;
+
+    var myTimer;
+
+    var slideshowContainer;
+
+    window.addEventListener("load", function () {
+        showSlides(slideIndex);
+        myTimer = setInterval(function () {
+            plusSlides(1)
+        }, 4000);
+
+        //COMMENT OUT THE LINE BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
+        slideshowContainer = document.getElementsByClassName('slideshow-inner')[0];
+
+    })
+
+    // NEXT AND PREVIOUS CONTROL
+    function plusSlides(n) {
+        clearInterval(myTimer);
+        if (n < 0) {
+            showSlides(slideIndex -= 1);
+        } else {
+            showSlides(slideIndex += 1);
+        }
+
+        //COMMENT OUT THE LINES BELOW TO KEEP ARROWS PART OF MOUSEENTER PAUSE/RESUME
+
+        if (n === -1) {
+            myTimer = setInterval(function () {
+                plusSlides(n + 2)
+            }, 4000);
+        } else {
+            myTimer = setInterval(function () {
+                plusSlides(n + 1)
+            }, 4000);
+        }
+    }
+
+    //Controls the current slide and resets interval if needed
+    function currentSlide(n) {
+        clearInterval(myTimer);
+        myTimer = setInterval(function () {
+            plusSlides(n + 1)
+        }, 4000);
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        let i;
+        const slides = document.getElementsByClassName("mySlides");
+        const dots = document.getElementsByClassName("dot");
+        if (n > slides.length) {
+            slideIndex = 1
+        }
+        if (n < 1) {
+            slideIndex = slides.length
+        }
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex - 1].style.display = "block";
+        dots[slideIndex - 1].className += " active";
+    }
+
+    pause = () => {
+        clearInterval(myTimer);
+    }
+
+    resume = () => {
+        clearInterval(myTimer);
+        myTimer = setInterval(function () {
+            plusSlides(slideIndex)
+        }, 4000);
+    }
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        // Add smooth scrolling to all links
+        $("a").on('click', function(event) {
+
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+                // Prevent default anchor click behavior
+                event.preventDefault();
+
+                // Store hash
+                var hash = this.hash;
+
+                // Using jQuery's animate() method to add smooth page scroll
+                // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top
+                }, 1000, function(){
+
+                    // Add hash (#) to URL when done scrolling (default click behavior)
+                    window.location.hash = hash;
+                });
+            } // End if
+        });
+    });
+</script>
+
+
+</body>
+
+</html>
